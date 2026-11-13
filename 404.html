@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <base href="/plataforma-cursos/">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CLUB BPM: educação, música, esporte e produção sociocultural. Cursos de discotecagem, eventos, projetos e parcerias.">
+  <meta name="theme-color" content="#0B7A3E">
+  <title>CLUB BPM — Educação, música e cultura</title>
+  <!-- Ícones PROVISÓRIOS (logo em texto). Trocar quando chegar o logo oficial (P4.1). -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!--
+    Google Tag Manager / GA4 (requisito D.10) com Consent Mode v2.
+    - Tudo começa "denied" e o GTM NÃO é carregado antes do aceite.
+    - O app Dart chama window.applyConsent(analytics, marketing) quando o
+      usuário decide no banner (lib/core/consent).
+    - Defina o ID do container em GTM_ID (ex.: 'GTM-XXXXXXX'). Vazio = nada é carregado.
+  -->
+  <script>
+    var GTM_ID = '';
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    var gtmLoaded = false;
+    window.applyConsent = function (analytics, marketing) {
+      gtag('consent', 'update', {
+        analytics_storage: analytics ? 'granted' : 'denied',
+        ad_storage: marketing ? 'granted' : 'denied',
+        ad_user_data: marketing ? 'granted' : 'denied',
+        ad_personalization: marketing ? 'granted' : 'denied'
+      });
+      if ((analytics || marketing) && GTM_ID && !gtmLoaded) {
+        gtmLoaded = true;
+        dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(GTM_ID);
+        document.head.appendChild(s);
+      }
+    };
+  </script>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
